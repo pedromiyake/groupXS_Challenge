@@ -1,0 +1,136 @@
+@font-face {
+	font-family: 'harry-p';
+	src: url(fonts/HARRP___.ttf);
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'lumus';
+	src: url(fonts/LumosLatino.ttf);
+	font-style: normal;
+}
+
+@-ms-viewport {
+	width: device-width;
+}
+
+@media screen and (min-width: 980px) {
+
+	.card h5 {
+		font-size: 18px;
+	}
+
+}
+
+html, body {
+	margin: 0;
+}
+
+body {
+	background-image: url("images/jumbotron-background.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: auto;	
+}
+
+.jumbotron {
+	background: none;
+	color: white;
+	height: 600px;
+}
+
+h1 {
+	font-family: 'harry-p';
+	font-size: 70px !important;
+}
+
+header p {
+	font-family: 'lumus';
+	font-size: 30px !important;
+}
+
+
+main {
+	padding-top: 20px;
+	text-align: center;
+}
+
+#intro {
+	margin-bottom: 50px;
+	background-color: white;
+}
+
+#intro h3{
+	font-family: 'lumus';
+	font-size: 30px;
+	padding-top: 20px;
+}
+
+#intro p{
+	margin-top: 40px;
+	font-family: 'times-new-roman';
+	font-size: 20px;
+	padding-bottom: 20px;
+}
+
+#books-list {
+	background-color: none;
+}
+
+#flex-container {
+	column-gap: 10px;
+}
+
+.card {
+	padding: 10px 0;
+	font-family: 'lumus';
+}
+
+.card img {
+	width: 180px;
+	height:auto;
+	opacity: 1.0 !important;
+}
+
+.card img:hover {
+	-webkit-filter: grayscale(80%);
+	filter: grayscale(80%);
+}
+
+.card h5 {
+	font-size: 22px;
+}
+
+.card p {
+	font-family: 'times-new-roman';
+}
+
+#calculate-btn-container {
+	margin: 25px 0;
+	text-align: center;
+}
+
+#calculate {
+	margin: 0 auto;
+	background-color: #c22807;
+	font-family: 'harry-p';
+	font-size: 25px;
+}
+
+.hidden {
+	display: none;
+}
+
+#alert {
+	font-family: 'times-new-roman';
+	font-size: 18px;
+}
+
+#books-img {
+	width: 250px;
+}
+
+.price {
+	font-size: 18px;
+}
