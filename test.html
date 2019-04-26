@@ -1,0 +1,226 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Rebate price - Harry Pothetical book bundles</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  </head>
+  <body style='margin: 0 1em;'>
+    <div id='main'>
+      <h1>TEST - Rebate price for <em>Harry Pothetical</em> book bundles</h1>
+      <h2>Calculate the final price in (<em>euros</em>) according to the combination of quantities of each of the first 5 books in the <em><a href="index.html" target="_blank">Harry Pothetical</a></em> series.</h2>
+    </div>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+    <script type="text/javascript" src="enums.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
+    <script>
+      //Tests for sumNumberOfUnits()
+      test('sumNumberOfUnitis([]) should return 0', function(assert) {
+        var result = sumNumberOfUnitis([]);
+        var expected = 0;
+        assert.deepEqual(result, expected);
+      });
+      test('sumNumberOfUnitis([10]) should return 10', function(assert) {
+        var result = sumNumberOfUnitis([10]);
+        var expected = 10;
+        assert.deepEqual(result, expected);
+      });
+      test('sumNumberOfUnitis([1, 2, 3, 4, 5, 6]) should return 21', function(assert) {
+        var result = sumNumberOfUnitis([1, 2, 3, 4, 5, 6]);
+        var expected = 21;
+        assert.deepEqual(result, expected);
+      });
+
+      //Test for setPacksArr()
+      test('setPacksArr() should make packsArr = [] for orderArr = []', function(assert) {
+        orderArr = [];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [];
+        assert.deepEqual(result, expected);
+      });
+      test('setPacksArr() should make packsArr = [] for orderArr = [0]', function(assert) {
+        orderArr = [0];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [];
+        assert.deepEqual(result, expected);
+      });
+      test('setPacksArr() should make packsArr = [] for orderArr = [0, 0, 0, 0, 0]', function(assert) {
+        orderArr = [0, 0, 0, 0, 0];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [];
+        assert.deepEqual(result, expected);
+      });      
+      test('setPacksArr() should make packsArr = [2] for orderArr = [1, 1]', function(assert) {
+        orderArr = [1, 1];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [2];
+        assert.deepEqual(result, expected);
+      });
+      test('setPacksArr() should make packsArr = [1, 1] for orderArr = [2]', function(assert) {
+        orderArr = [2];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [1, 1];
+        assert.deepEqual(result, expected);
+      });
+      test('setPacksArr() should make packsArr = [1, 1, 1, 1, 1] for orderArr = [5]', function(assert) {
+        orderArr = [5];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [1, 1, 1, 1, 1];
+        assert.deepEqual(result, expected);
+      });
+      test('setPacksArr() should make packsArr = [2, 2] for orderArr = [2, 2]', function(assert) {
+        orderArr = [2, 2];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [2, 2];
+        assert.deepEqual(result, expected);
+      });
+      test('setPacksArr() should make packsArr = [2, 2] for orderArr = [2, 0, 2]', function(assert) {
+        orderArr = [2, 0, 2];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [2, 2];
+        assert.deepEqual(result, expected);
+      });      
+      test('setPacksArr() should make packsArr = [2, 2] for orderArr = [5, 5, 4, 3, 2, 1, 1, 1, 1, 1]', function(assert) {
+        orderArr = [3, 2, 4, 5, 10];
+        packsArr = [];        
+        setPacksArr();
+        var result = packsArr;
+        var expected = [5, 5, 4, 3, 2, 1, 1, 1, 1, 1];
+        assert.deepEqual(result, expected);
+      });
+
+      //Tests for pricePerPack()
+      test('pricePerPack(0) should return NaN', function(assert) {
+        var result = pricePerPack(0);
+        var expected = NaN;
+        assert.deepEqual(result, expected);
+      });
+      test('pricePerPack(1) should return 8', function(assert) {
+        var result = pricePerPack(1);
+        var expected = 8;
+        assert.deepEqual(result, expected);
+      });
+      test('pricePerPack(2) should return 15.2', function(assert) {
+        var result = pricePerPack(2);
+        var expected = 15.2;
+        assert.deepEqual(result, expected);
+      });
+      test('pricePerPack(3) should return 21.6', function(assert) {
+        var result = pricePerPack(3);
+        var expected = 21.6;
+        assert.deepEqual(result, expected);
+      });
+      test('pricePerPack(4) should return 25.6', function(assert) {
+        var result = pricePerPack(4);
+        var expected = 25.6;
+        assert.deepEqual(result, expected);
+      });
+      test('pricePerPack(5) should return 30', function(assert) {
+        var result = pricePerPack(5);
+        var expected = 30;
+        assert.deepEqual(result, expected);
+      });
+      test('pricePerPack(6) should return NaN', function(assert) {
+        var result = pricePerPack(6);
+        var expected = NaN;
+        assert.deepEqual(result, expected);
+      });
+      
+      //Test for priceWholePurchase()
+      test('priceWholePurchase() with packsArr = [] should return NaN', function(assert) {
+        packsArr = [];
+        var result = priceWholePurchase();
+        var expected = 0;
+        assert.deepEqual(result, expected);
+      });
+      test('priceWholePurchase() with packsArr = [1] should return 8', function(assert) {
+        packsArr = [1];
+        var result = priceWholePurchase();
+        var expected = 8;
+        assert.deepEqual(result, expected);
+      });
+      test('priceWholePurchase() with packsArr = [5] should return 30', function(assert) {
+        packsArr = [5];
+        var result = priceWholePurchase();
+        var expected = 30;
+        assert.deepEqual(result, expected);
+      });
+      test('priceWholePurchase() with packsArr = [5, 3] should return 51.6', function(assert) {
+        packsArr = [5, 3];
+        var result = priceWholePurchase();
+        var expected = 51.6;
+        assert.deepEqual(result, expected);
+      });
+      test('priceWholePurchase() with packsArr = [4, 4] should return 51.2', function(assert) {
+        packsArr = [4, 4];
+        var result = priceWholePurchase();
+        var expected = 51.2;
+        assert.deepEqual(result, expected);
+      });
+
+      // Test for numberToEuro()
+      test('numberToEuro(1) should return "€ 1,00"', function(assert) {
+        var result = numberToEuro(1);
+        var expected = "€ 1,00";
+        assert.deepEqual(result, expected);
+      });     
+      test('numberToEuro(11111.11) should return "€ 11111,11"', function(assert) {
+        var result = numberToEuro(11111.11);
+        var expected = "€ 11111,11";
+        assert.deepEqual(result, expected);
+      });
+
+      //Test for checkRequest()
+      test('checkRequest() with orderArr = [] should return false', function(assert) {
+        orderArr = [];
+        var result = checkRequest();
+        var expected = false;
+        assert.deepEqual(result, expected);
+      });
+      test('checkRequest() with orderArr = [0] should return false', function(assert) {
+        orderArr = [0];
+        var result = checkRequest();
+        var expected = false;
+        assert.deepEqual(result, expected);
+      });
+      test('checkRequest() with orderArr = [1, 1, 1, 1, 1, 1] should return false', function(assert) {
+        orderArr = [1, 1, 1, 1, 1, 1];
+        var result = checkRequest();
+        var expected = false;
+        assert.deepEqual(result, expected);
+      });      
+      test('checkRequest() with orderArr = [1] should return true', function(assert) {
+        orderArr = [1];
+        var result = checkRequest();
+        var expected = true;
+        assert.deepEqual(result, expected);
+      });
+      test('checkRequest() with orderArr = [3, 3, 3, 3, 3] should return true', function(assert) {
+        orderArr = [3, 3, 3, 3, 3];
+        var result = checkRequest();
+        var expected = true;
+        assert.deepEqual(result, expected);
+      });
+
+    </script>
+    </script>
+  </body>
+</html>
